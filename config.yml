@@ -3,5 +3,6 @@ repo-name: peripherals-ms-sql
 categories:
 - Database
 - Storage
-display-name: 
-manufacture: Microsoft
+display-name: MS SQL
+manufacturer: Microsoft
+description: Microsoft SQL Server is a relational database management system developed by Microsoft.
