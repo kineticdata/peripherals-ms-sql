@@ -1,7 +1,7 @@
 # kinetic-bridgehub-adapter-database-mssql
 An extension of the Generic JDBC Bridge that has been customized to simplify the deployment and implement MSSQL specific features
 
-# Kinetic Core Bridgehub Adapter
+# Microsoft SQL Bridgehub Adapter
 A Kinetic Bridgehub adapter for the Microsoft SQL server
 
 * [MS SQL Bridgehub Adapter Information](#ms-sql-bridgehub-adapter-information)

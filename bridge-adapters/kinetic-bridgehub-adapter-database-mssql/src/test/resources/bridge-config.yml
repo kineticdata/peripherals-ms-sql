@@ -6,6 +6,7 @@ Bridge Configuration:
     Password: ""
     Server: ""
     Port: ""
+    Database Name: ""
     Prognum: ""
 
 # Setting the different request configurations for the Standard Bridgehub tests
