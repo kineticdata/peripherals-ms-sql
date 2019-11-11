@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.kineticdata.bridgehub.adapter.sql</groupId>
     <artifactId>kinetic-bridgehub-adapter-database-mssql</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
 
     <name>kinetic-bridgehub-adapter-database-mssql</name>
@@ -48,6 +48,13 @@
             <groupId>com.kineticdata.bridgehub.adapter</groupId>
             <artifactId>kinetic-bridgehub-adapter-database</artifactId>
             <version>[1.0.1,)</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+            <version>4.11</version>
+            <type>jar</type>
         </dependency>
     </dependencies>
     <properties>
