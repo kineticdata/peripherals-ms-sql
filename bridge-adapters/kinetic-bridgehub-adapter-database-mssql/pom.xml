@@ -12,22 +12,41 @@
         <developerConnection>scm:git:https://github.com/kineticcommunity/kinetic-bridgehub-adapter-database-mssql.git</developerConnection>
     </scm>
 
+    <distributionManagement>
+        <repository>
+            <id>com.kineticdata.public</id>
+            <url>s3://maven-repo-public-kineticdata.com/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>com.kineticdata.public</id>
+            <url>s3://maven-repo-public-kineticdata.com/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <repositories>
         <repository>
-          <id>com.kineticdata</id>
-          <url>http://utilities.kineticdata.com/nexus/content/repositories/releases/</url>
+            <id>z1_com.kineticdata.public</id>
+            <url>https://s3.amazonaws.com/maven-repo-public-kineticdata.com/releases</url>
         </repository>
         <repository>
-          <id>thirdparty</id>
-          <url>http://utilities.kineticdata.com/nexus/content/repositories/thirdparty/</url>
+            <id>z2_com.kineticdata.private</id>
+            <url>s3://maven-repo-private-kineticdata.com/releases</url>
+        </repository>
+        <repository>
+            <id>z3_com.kineticdata.public</id>
+            <url>https://s3.amazonaws.com/maven-repo-public-kineticdata.com/snapshots</url>
+        </repository>
+        <repository>
+            <id>z4_com.kineticdata.private</id>
+            <url>s3://maven-repo-private-kineticdata.com/snapshots</url>
         </repository>
     </repositories>
 
     <dependencies>
         <dependency>
-            <groupId>com.kineticdata.bridges.adapter</groupId>
-            <artifactId>kinetic-bridgehub-adapter</artifactId>
-            <version>1.1.0</version>
+            <groupId>com.kineticdata.agent</groupId>
+            <artifactId>kinetic-agent-adapter</artifactId>
+            <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -64,6 +83,13 @@
     <maven.build.timestamp.format>yyyy-MM-dd HH:mm</maven.build.timestamp.format>
     </properties>
     <build>
+        <extensions>
+            <extension>
+                <groupId>org.springframework.build</groupId>
+                <artifactId>aws-maven</artifactId>
+                <version>5.0.0.RELEASE</version>
+            </extension>
+        </extensions>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -115,6 +141,23 @@
                             <Build-Time>${maven.build.timestamp}</Build-Time>
                         </manifestEntries>
                     </archive>
+                </configuration>
+            </plugin>
+            <!-- Testing -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.11</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.surefire</groupId>
+                        <artifactId>surefire-junit47</artifactId>
+                        <version>2.12</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <!-- Allow the project to be built even if tests are failing. -->
+                    <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
             </plugin>
         </plugins>
